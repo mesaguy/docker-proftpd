@@ -9,6 +9,7 @@ RUN apt update && \
     apt clean autoclean && \
     apt autoremove --yes && \
     rm -rf /var/lib/{apt,dpkg,cache,log} && \
+    chown ftp /run /run/proftpd && \
     mkdir /ftp
 
 COPY proftpd.conf /etc/proftpd/proftpd.conf

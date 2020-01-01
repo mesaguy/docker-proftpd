@@ -6,7 +6,7 @@
 
 Simple unprivileged proftpd service built for many architectures.
 
-ftp runs on 20/tcp and 21/tcp as the user 'ftp'. By default only anonymous connections are permitted.
+ftp runs on 10021/tcp as the user 'ftp'. By default only anonymous connections are permitted.
 
 ## Usage
 
@@ -16,13 +16,13 @@ The /etc/proftpd/proftpd.conf configuration file may be overwritten as needed
 
 ## Usage examples
 
-Run basic service on 20/tcp and 21/tcp (the default ftp service port)
+Run basic service on 21/tcp (the default ftp service port).
 
-    docker run -p 20-21 -v /mydata/:/ftp/ -it mesaguy/proftpd
+    docker run -p 21:10021 -v /mydata/:/ftp/ -it mesaguy/proftpd
 
 Use a custom proftpd configuration and multiple mounts
 
-    docker run -p 20-21 \
+    docker run -p 21:10021 \
         -v /mydata/:/ftp/data/ \
         -v /my-www/:/ftp/www/ \
         -v $(pwd)/proftpd.conf:/etc/proftpd/proftpd.conf \
